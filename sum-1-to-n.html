@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum from 1 to N</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 520px; margin: 50px auto; padding: 20px; }
+    input, button { font-size: 16px; padding: 9px; margin: 6px 0; }
+    #answer { font-weight: bold; margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h1>Sum from 1 to N</h1>
+  <label for="number">Enter an integer (at least 1):</label><br>
+  <input id="number" type="number" step="1" min="1" value="10">
+  <button id="calculate">Calculate</button>
+  <p id="answer">Answer: </p>
+
+  <script>
+    document.getElementById("calculate").addEventListener("click", function () {
+      const n = Number(document.getElementById("number").value);
+      const answer = document.getElementById("answer");
+
+      if (!Number.isInteger(n) || n < 1) {
+        answer.textContent = "Answer: Unspecified";
+        return;
+      }
+
+      let sum = 0;
+      for (let i = 1; i <= n; i++) {
+        sum += i;
+      }
+      answer.textContent = "Answer: " + sum;
+    });
+  </script>
+</body>
+</html>
